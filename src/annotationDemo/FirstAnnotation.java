@@ -22,7 +22,7 @@ import java.lang.annotation.Target;
 @Inherited
 public @interface FirstAnnotation {
 
-    String name() default "huanghao";
+    String name();
 
-    int height() default 183;
+    int height();
 }
