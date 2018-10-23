@@ -16,13 +16,13 @@ import java.lang.annotation.Target;
  * @Documented 可以被提取成API文档 <br>
  * @Inherited 可被子类继承的注解<br>
  */
-@Retention(value = RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.FIELD, ElementType.TYPE, ElementType.METHOD })
 @Documented
 @Inherited
 public @interface FirstAnnotation {
 
-    String name();
+	String name() default "huanghao";
 
-    int height();
+	int height();
 }
