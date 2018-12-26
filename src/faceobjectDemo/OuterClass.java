@@ -1,9 +1,22 @@
 package faceobjectDemo;
 
+/**
+ * 内部类的应用
+ * 
+ * @author huanghao
+ *
+ */
 public class OuterClass {
 
     private String outerName;
 
+    /**
+     * 静态内部类</br>
+     * 作为类成员
+     * 
+     * @author huanghao
+     *
+     */
     private static class InnerClass {
         private double weight;
         private String innerName;
