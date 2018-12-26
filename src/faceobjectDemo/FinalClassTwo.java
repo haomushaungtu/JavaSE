@@ -1,4 +1,4 @@
-package faceObjectDemo;
+package faceobjectDemo;
 
 /**
  * 对于一个不可变类的缓存</br>

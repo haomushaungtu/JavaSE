@@ -1,4 +1,4 @@
-package faceObjectDemo;
+package faceobjectDemo;
 
 /**
  * 关于final关键字的运用</br>
