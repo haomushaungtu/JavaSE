@@ -1,7 +1,7 @@
 package collectionDemo;
 
 /**
- * Collection ½Ó¿Ú List
+ * Collection æ¥å£List
  * 
  * @author huanghao
  *
