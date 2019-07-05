@@ -1,5 +1,8 @@
 package faceobjectDemo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 关于final关键字的运用</br>
  * 1.final修饰变量时，必须由程序员显示指定初始值</br>
@@ -12,22 +15,37 @@ package faceobjectDemo;
  *
  */
 public class FinalClass {
-    // 定义一个类变量
-    private static final String field;
-    private final int age;
-    static {
-        field = "";
+
+    /**
+     * 定义一个类不可变常量
+     */
+    private static final String field = "";
+
+    /**
+     * 定义一个实例常量<br>
+     * 编译期即已确定该常量值
+     */
+    private final int initAge = 1;
+
+    public void setInitAge(final List<String> paramList) {
+        int a = 2;
+        if ((0 + 1) - a == initAge) {
+            System.out.println(field);
+        }
+        paramList.remove(0);
+        // 此处final修饰对象地址不可被改变，即不可再指向另外对象
+        // paramList = new ArrayList<>();
+        System.out.println(paramList.toString());
     }
 
-    {
-        this.age = 6;
+    public void setList() {
+        List<String> paramList = new ArrayList<>();
+        paramList.add("1");
+        setInitAge(paramList);
     }
 
-    public FinalClass(int age) {
+    public static void main(String[] args) {
+        FinalClass clazz = new FinalClass();
+        clazz.setList();
     }
-
-    public FinalClass() {
-
-    }
-
 }
