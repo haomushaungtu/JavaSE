@@ -6,7 +6,7 @@ package faceobjectDemo;
  * @author huanghao
  *
  */
-public class FinalClassTwo {
+public final class FinalClassTwo {
     private static final int MAX_SIZE = 10;
     private static int pos = 0;
     private static FinalClassTwo[] finalClassTwo = new FinalClassTwo[MAX_SIZE];
