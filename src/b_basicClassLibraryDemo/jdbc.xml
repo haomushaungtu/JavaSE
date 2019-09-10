@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <db_setting>
+        <db_ip>127.0.0.1</db_ip>
+        <db_port>3306</db_port>
+        <db_user>ccabs</db_user>
+        <db_password>ccabs</db_password>
+    </db_setting>
