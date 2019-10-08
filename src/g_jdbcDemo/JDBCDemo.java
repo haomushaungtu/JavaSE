@@ -30,7 +30,6 @@ public class JDBCDemo {
      */
     public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException {
         Properties properties = new Properties();
-        System.out.println(System.getProperty("user.dir"));
         // 使用InPutStream流读取properties文件
         BufferedReader bufferedReader = new BufferedReader(new FileReader(propertiesPath));
         properties.load(bufferedReader);
