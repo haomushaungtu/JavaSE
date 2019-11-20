@@ -10,7 +10,7 @@ import java.util.RandomAccess;
  * ArrayList 实现原理 @see ArrayList <br>
  * 1.底层原理为数组数据结构 elementData <br>
  * 2.添加元素方法原理:(1)计算当前需要扩充数组是否小于默认数组长度10,小于则直接扩充到10数组长度<br>
- * (2)
+ * (2)首次添加元素后，数组长度直接被扩充到10长度 
  * 
  * @author huanghao
  *
@@ -24,7 +24,7 @@ public class DefineArrayList<E> extends AbstractList<E>
     /**
      * 容器数组
      */
-    Object[] elementData;
+    transient Object[] elementData;
 
     /**
      * 元素个数
@@ -44,7 +44,6 @@ public class DefineArrayList<E> extends AbstractList<E>
     /**
      * 空数组实例
      */
-    @SuppressWarnings("unused")
     private static final Object[] EMPTY_ELEMENTDATA = {};
 
     /** 空元素数组 */
@@ -137,7 +136,7 @@ public class DefineArrayList<E> extends AbstractList<E>
      * 扩容
      * 
      * @author huangaho
-     * @params
+     * @see src/d_collectionDemo/Operators 操作符
      * @param minCapacity
      */
     private void grow(int minCapacity) {
@@ -196,6 +195,7 @@ public class DefineArrayList<E> extends AbstractList<E>
      * 移除元素
      */
     public E remove(int index) {
+        // 检查是否超过数组范围
         rangeCheck(index);
         modCount++;
         E oldValue = elementData(index);
