@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 自定义类记载器</br>
  * 
@@ -14,27 +17,23 @@ import java.lang.reflect.Method;
  */
 public class CompileClassLoader extends ClassLoader {
 
+    private static Logger logger = LoggerFactory.getLogger(CompileClassLoader.class);
+
     private byte[] getBytes(String fileName) throws IOException {
         File file = new File(fileName);
         long len = file.length();
         byte[] raw = new byte[(int) len];
-        FileInputStream inputStream = null;
-        try {
-            inputStream = new FileInputStream(file);
+        try (FileInputStream inputStream = new FileInputStream(file)) {
             int r = inputStream.read(raw);
             if (r != len) {
                 throw new IOException("无法读取全部文件:");
             }
             return raw;
-        } finally {
-            if (inputStream != null) {
-                inputStream.close();
-            }
         }
     }
 
     private boolean compile(String javaFile) throws IOException {
-        System.out.println("CompileClassLoader正在编译:" + javaFile + "....");
+        logger.info("CompileClassLoader正在编译:[{}]......", javaFile);
         Process process = Runtime.getRuntime().exec("javac" + javaFile);
         try {
             process.waitFor();
@@ -79,9 +78,10 @@ public class CompileClassLoader extends ClassLoader {
 
     public static void main(String[] args) throws NoSuchMethodException, SecurityException, ClassNotFoundException,
             IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        if (args.length < 1) {
-            System.out.println("缺少目标类,请按如下格式运行源文件");
-            System.out.println("java CompileClassLoader ClassName");
+        if (args.length == 0) {
+            logger.info("缺少目标类,请按如下格式运行源文件");
+            logger.info("java CompileClassLoader ClassName");
+            return;
         }
         String progClass = args[0];
         String progArgs[] = new String[args.length - 1];
