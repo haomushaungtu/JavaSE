@@ -14,10 +14,11 @@ package basic_numerical_class;
 public class Operators {
     public static void main(String[] args) {
         int numberA = -15;
-        int numberB = 3;
+        int numberB = -5;
         System.out.println(numberA >> 1);
         System.out.println(numberA >> 2);
         System.out.println(numberA << 1);
         System.out.println(numberB >>> 2);
+        System.out.println(numberB >> 1);
     }
 }
