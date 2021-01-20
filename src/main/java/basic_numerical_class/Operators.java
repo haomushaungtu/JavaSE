@@ -6,19 +6,23 @@ package basic_numerical_class;
  * 按位或|,逻辑与 || 短路与否判断是否需要继续
  * <<和>> 有符号左移和右移(左移乘以2的n次方，右移除以2的n次方)
  * <<<和>>> 无符号左移和右移
+ * << 左移 将左操作数向左移动，无论做操作数是正还是负，都在低位补“0”
+ * >> 带符号的右移 将左操作数右移，如果左操作数是正数，则高位补“0”，如果左操作数是负数，则高位补“1”
+ * >>> 无符号右移，将左操作数右移，无论左操作数是正还是负，都在高位补“0”
  * ~取反操作
  * ^异或
  * @author huanghao
- * @Date 2019-10-08 15:12
  */
 public class Operators {
     public static void main(String[] args) {
-        int numberA = -15;
-        int numberB = -5;
-        System.out.println(numberA >> 1);
-        System.out.println(numberA >> 2);
-        System.out.println(numberA << 1);
-        System.out.println(numberB >>> 2);
-        System.out.println(numberB >> 1);
+        int numberA = -15;//1000 0000 0000 0000 0000 0000 0000 1111原码
+        int numberB = -5;//1000 0000 0000 0000 0000 0000 0000 1001原码
+        int numberC = 2;//0000 0000 0000 0000 0000 0000 0000 0010原码
+        System.out.println(numberA >> 1); //反码1..10000->补码1..10001->1..11000->反码1..00111->原码1..0001000
+        System.out.println(numberA >> 2);//反码110000->补码110001->111100->反码100011->原码100100
+        System.out.println(numberA << 1);//反码110000->补码110001->100010->反码1011101->原码1011110
+        System.out.println(numberB >>> 3);
+        System.out.println(numberB >> 1);//反码110110->补码110111->1111011->反码1000100->原码100101
+        System.out.println(numberC << 2);//0...0000 0010->0...0000 1000
     }
 }
