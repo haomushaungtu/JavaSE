@@ -1,5 +1,7 @@
 package collection;
 
+import collection.list.DefineArrayList;
+
 import java.util.ArrayList;
 import java.util.List;
 

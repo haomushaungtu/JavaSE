@@ -1,4 +1,4 @@
-package collection;
+package collection.list;
 
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -7,8 +7,9 @@ import java.util.List;
 import java.util.RandomAccess;
 
 /**
- * ArrayList 实现原理 @see ArrayList <br>
- * 1.底层原理为数组数据结构 elementData <br>
+ * ArrayList 实现原理
+ * @see java.util.ArrayList <br>
+ * 1.底层原理为数组数据结构 elementData[] <br>
  * 2.添加元素方法原理:(1)计算当前需要扩充数组是否小于默认数组长度10,小于则直接扩充到10数组长度<br>
  * (2)首次添加元素后，数组长度直接被扩充到10长度 
  * 
@@ -78,14 +79,18 @@ public class DefineArrayList<E> extends AbstractList<E>
      * 添加元素
      */
     public boolean add(E e) {
+        // 确保容器大小大于增加元素后的容量大小
         ensureCapacityInternal(size + 1); // Increments modCount!!
+        // 将增加元素放入数组容器中
         elementData[size++] = e;
         return true;
     }
 
     @Override
     public E get(int index) {
+        // 检查是否数组越界
         rangeCheck(index);
+        // 返回数组该索引位置元素
         return elementData(index);
     }
 
@@ -136,7 +141,7 @@ public class DefineArrayList<E> extends AbstractList<E>
      * 扩容
      * 
      * @author huangaho
-     * @see src/d_collectionDemo/Operators 操作符
+     * @see basic_numerical_class.Operators 操作符
      * @param minCapacity
      */
     private void grow(int minCapacity) {
