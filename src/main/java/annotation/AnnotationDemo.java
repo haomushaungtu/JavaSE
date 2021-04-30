@@ -2,6 +2,9 @@ package annotation;
 
 import java.lang.reflect.Field;
 
+/**
+ * @author admin
+ */
 public class AnnotationDemo {
     @FirstAnnotation(height = 100)
     private String height;

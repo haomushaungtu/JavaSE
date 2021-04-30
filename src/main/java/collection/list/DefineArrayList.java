@@ -42,7 +42,7 @@ public class DefineArrayList<E> extends AbstractList<E>
      */
     private static final int DEFAULT_CAPACITY = 10;
 
-    /**
+    /**isEmpty
      * 空数组实例
      */
     private static final Object[] EMPTY_ELEMENTDATA = {};

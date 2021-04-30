@@ -39,11 +39,12 @@ public class GCDemo {
         for (int i=0;i < num;i++) {
             Thread.sleep(500);
             objects.add(new OOMObject());
+            System.out.println(i);
         }
         System.gc();
     }
 
     public static void main(String[] args) throws InterruptedException {
-        fillHeap(1000);
+        fillHeap(100);
     }
 }
