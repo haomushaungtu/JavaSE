@@ -4,7 +4,7 @@
     <artifactId>JavaSeLesson</artifactId>
   <version>0.0.1</version>
     <properties>
-        <commons-configuration2>2.7</commons-configuration2>
+        <commons-configuration2>2.8.0</commons-configuration2>
         <commons-beanutils>1.9.4</commons-beanutils>
         <mysql-connector-java>8.0.16</mysql-connector-java>
         <log4j>2.13.2</log4j>
